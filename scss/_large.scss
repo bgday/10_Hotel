@@ -1,0 +1,57 @@
+header,
+nav,
+main,
+footer {
+  max-width: 65rem;
+  margin: auto;
+}
+
+//nav
+
+.moveOver>.contentWrapper {
+  transform:translateX(0px);
+}
+
+#theButton {
+  display:none;
+}
+
+nav {
+  position:static;
+  transform:translateX(0);
+  width: auto;
+  ul {
+    display:flex;
+    border-left: 1px solid rgb(0,0,0,0.2);
+  }
+  ul li a {
+    padding: .6rem 1.5rem;
+    border:none;
+    border-right: 1px solid rgb(0,0,0,0.2);
+  }
+}
+
+//MAIN
+
+main h1 {
+  margin:2rem 0 2rem 0;
+}
+
+#cards {
+  padding:0;
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: $gutter;
+  section {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+    "photo"
+    "location"
+    "address"
+    "phone"
+    "button";
+    .infoWrapper {
+      margin-bottom:1rem;
+    }
+  }
+}

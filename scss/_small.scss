@@ -1,0 +1,195 @@
+/* prevent font size adjustments after orientation changes */
+html {
+  -moz-textsize-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+  height: 100%;
+}
+
+/* apply natural box model to all elements */
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  height: 100%;
+  font-family: $defaultFont;
+  font-weight: $normalWeight;
+  color: $fontColor;
+}
+
+//header
+
+#headerWrapper {
+  color: $secondaryColor;
+}
+
+header {
+  background-color: $primaryColor;
+  display: grid;
+  grid-template-columns: 60px auto 44px;
+  column-gap: $gutter;
+  align-items: center;
+  padding: 1.5rem;
+  span {
+    font-size: 1.5rem;
+    line-height: 1.2rem;
+    a {
+      font-size: 1rem;
+      padding-top: 50px;
+      color: $secondaryColor;
+      text-decoration: none;
+      &:hover {
+        color: $accentColorLt;
+      }
+    }
+  }
+}
+
+// nav
+#theButton {
+  width: 44px;
+  height: 44px;
+  margin: 0;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: white;
+  &:before {
+    content: "\2630";
+  }
+}
+
+nav {
+  // background-color: $secondaryColor;
+  width: 180px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  transform: translateX(100%);
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul li a {
+    display: block;
+    padding: 0.9rem 0.5rem;
+    text-align: right;
+    border-bottom: 1px rgba(0, 0, 0, 0.25) solid;
+    text-decoration: none;
+    color: $primaryColor;
+    &:hover {
+      background-color: $secondaryColor;
+    }
+  }
+  li.active a {
+    background-color: $secondaryColor;
+  }
+}
+
+.moveOver #theButton::before {
+  content: "\2715";
+}
+
+.moveOver > .contentWrapper {
+  transform: translateX(-180px);
+  transition: transform 0.5s ease;
+}
+
+#pageWrapper {
+  position: relative;
+  overflow-x: hidden;
+}
+
+// main
+
+h1 {
+  padding-left: $gutter;
+  font-size:1.5rem;
+  color:$primaryColor;
+}
+h3 {
+  margin-top: 0;
+}
+
+body {
+  background-color: white;
+}
+
+#cards {
+  section {
+    padding:1rem;
+    background-color: $secondaryColor;
+    color: $primaryColor;
+    display: grid;
+    margin-bottom: 1.5rem;
+    grid-template-areas:
+      "photo"
+      "location"
+      "address"
+      "phone"
+      "button";
+    img {
+      margin-bottom: 1rem;
+      grid-area: photo;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .infoWrapper {
+      h2 {
+        grid-area: location;
+        margin: 0;
+        padding: 0;
+        font-family: $defaultFont;
+      }
+      address {
+        grid-area: address;
+      }
+      a.tel {
+        grid-area: phone;
+        text-decoration: none;
+        color: $primaryColor;
+        display: block;
+      }
+      a.moreInfo {
+        grid-area: button;
+        text-decoration: none;
+        color: white;
+        background-color: $primaryColor;
+        display:block;
+        margin-top: 1rem;
+        width:150px;
+        text-align: center;
+        padding:1rem;
+        border-radius:5px;
+      }
+    }
+  }
+}
+//end cards
+
+// footer
+
+div#footerWrapper {
+  background-color: $primaryColor;
+  color: $secondaryColor;
+  footer {
+    padding: 2rem;
+    ion-icon {
+      padding-right: 12px;
+    }
+
+    p.legal {
+      font-weight: $boldWeight;
+      text-align: center;
+      font-size: 1.1rem;
+      color: $secondaryColor;
+    }
+  }
+}
